@@ -4,13 +4,21 @@ After=network.target
 
 [Service]
 PIDFile=/run/gunicorn/__YNH_APP_NAME__-pid
+Type=simple
+DynamicUser=true
 User=__YNH_APP_NAME__
 Group=__YNH_APP_NAME__
 WorkingDirectory=__YNH_APP_PATH__
-ExecStart=__YNH_APP_PATH__/venv/bin/gunicorn -c __YNH_APP_PATH__/gunicorn.py wsgi:app
+ExecStart=__YNH_APP_PATH__/venv/bin/uvicorn --proxy-headers \
+        --forwarded-allow-ips='*' \
+        --workers=4 \
+        --port=54748 \
+        --no-access-log \
+        main:app
 ExecReload=/bin/kill -s HUP $MAINPID
 ExecStop=/bin/kill -s TERM $MAINPID
 PrivateTmp=true
+Restart=always
 
 [Install]
 WantedBy=multi-user.target

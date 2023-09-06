@@ -1,19 +1,18 @@
 {
-    "name": "Flask Template",
-    "id": "flask",
+    "name": "Fastapi Installation",
+    "id": "fastapi",
     "packaging_format": 1,
     "description": {
-        "en": "Flask app template.",
-        "fr": "Modèle d'app en Flask."
+        "en": "Install fastapi." 
     },
     "maintainer": {
-        "name": "alexAubin",
-        "email": "alex.aubin@mailoo.org"
+        "name": "cwilhelm",
+        "email": "charly.wilhelm@tvzofingen.ch"
     },
     "requirements": {
-        "yunohost": ">> 3.8.0"
+        "yunohost": ">> 11.2.4"
     },
-    "version": "20180725",
+    "version": "20230909",
     "multi_instance": "false",
     "services": [
         "nginx"
@@ -47,18 +46,18 @@
                 "type": "domain",
                 "example": "example.com",
                 "ask": {
-                    "en": "Choose a domain for the flask app",
-                    "fr": "Choisissez un nom de domaine pour l'application flask"
+                    "en": "Choose a domain for the fastapi app",
+                    "fr": "Choisissez un nom de domaine pour l'application fastapi"
                 }
             },
             {
                 "name": "path",
                 "type": "path",
-                "example": "/flask",
-                "default": "/flask",
+                "example": "/fastapi",
+                "default": "/fastapi",
                 "ask": {
-                    "en": "Choose a path for the flask app",
-                    "fr": "Choisissez un chemin pour l'application flask"
+                    "en": "Choose a path for the fastapi app",
+                    "fr": "Choisissez un chemin pour l'application fastapi"
                 }
             },
             {
@@ -68,15 +67,6 @@
                 "ask": {
                     "en": "Make the app public?",
                     "fr": "Rendre l'application publique ?"
-                }
-            },
-            {
-                "name": "db_type",
-                "choices": ["postgresql", "sqlite"],
-                "default": "postgresql",
-                "ask": {
-                    "en": "Choose the database to use",
-                    "fr": "Choisissez la base de donnée à utiliser"
                 }
             }
         ]
